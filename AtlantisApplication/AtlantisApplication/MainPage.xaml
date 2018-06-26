@@ -3,12 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AtlantisApplication"
              x:Class="AtlantisApplication.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
-
+    <ContentPage.Content>
+        <StackLayout Spacing="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="#518faa" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <Image Margin="0,35,0,0" Aspect="AspectFit" Source="logo_weather.png" HeightRequest="100" />
+                <Label Margin="0,10,0,20" TextColor="White" HorizontalTextAlignment="Center" Text="Atlantis Weather" FontSize="30"/>
+            </StackLayout>
+            <Image Source="atlantis_separator.png" Aspect="AspectFill"/>
+            <StackLayout Margin="30,0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button Margin="0,20,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="#c1ab24" Text="SENSORS" HorizontalOptions="FillAndExpand" Clicked="SensorsButtonClicked" />
+                <Button Margin="0,10,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="#a4881c" Text="COMMANDS" HorizontalOptions="FillAndExpand" Clicked="CommandsButtonClicked" />
+                <Button Margin="0,10,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="#c60e3c" Text="USERS" HorizontalOptions="FillAndExpand" Clicked="UsersButtonClicked" />
+                <Button Margin="0,10,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="#c60e3c" Text="METRICS" HorizontalOptions="FillAndExpand" Clicked="MetricsButtonClicked" />
+                <Button Margin="0,10,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="#c60e3c" Text="CHECK INTERNET" HorizontalOptions="FillAndExpand" Clicked="CheckInternetButtonClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
