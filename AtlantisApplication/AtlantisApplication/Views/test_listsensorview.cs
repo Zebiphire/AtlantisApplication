@@ -21,7 +21,7 @@ namespace AtlantisApplication.Views
             this.devices = devices;
             this.existingDevice = existingDevice;
 
-            var tableView = new TableView
+            /*var tableView = new TableView
             {
                 Intent = TableIntent.Form,
                 Root = new TableRoot(existingDevice != null ? "go to" : "go new ?")
@@ -55,7 +55,7 @@ namespace AtlantisApplication.Views
                         }),
                     },
                 }
-            };
+            };*/
 
             /* Button button = new Button()
              {

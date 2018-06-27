@@ -19,7 +19,7 @@ namespace AtlantisApplication
 
         private void SensorsButtonClicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new ListSensorsView());
+            Navigation.PushModalAsync(new ListSensors());
         }
 
         private void CommandsButtonClicked(object sender, EventArgs e)

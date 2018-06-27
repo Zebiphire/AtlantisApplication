@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using AtlantisApplication.Data;
 using Newtonsoft.Json;
 using Xamarin.Forms;
@@ -14,19 +16,18 @@ namespace AtlantisApplication
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListSensors : ContentPage
 	{
-		public ListSensors ()
-		{
-			InitializeComponent ();
-        }
-
 	    public List<DeviceAPI> ListDeviceAPI = new List<DeviceAPI>();
 
-	    
+        public ListSensors ()
+		{
+			InitializeComponent ();
 
-	    public void test()
-	    {
-	        ListDeviceAPI = GetListRest();
-        }
+		    ListDeviceAPI = GetListRest();
+
+		    listView.ItemsSource = ListDeviceAPI;
+		}
+
+	   
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
