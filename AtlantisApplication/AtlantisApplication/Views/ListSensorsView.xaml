@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlantisApplication.Views.ListSensorsView"
+             x:Name="ThePage"
+             Title="Sensor list">
+
+    <!--<  <ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="20,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                        <Label Text="{Binding name}" Detail="{Binding nameDeviceType}" VerticalTextAlignment="Center" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Refresh" Icon="ic_autorenew.png" Clicked="OnRefresh" />
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <ListView ItemsSource="{Binding}"
+                  ItemTapped="OnViewDevice">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding name}" Detail="{Binding nameDeviceType}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    <StackLayout IsVisible="{Binding Source={x:Reference ThePage}, Path=IsBusy}"
+                     HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="20">
+        <Label Text="Loading Data..." TextColor="Gray" HorizontalOptions="Center" />
+        <ActivityIndicator IsRunning="{Binding Source={x:Reference ThePage}, Path=IsBusy}" Color="Accent" >
+        </ActivityIndicator>
+    </StackLayout>
+</Grid>
+    
+   
+</ContentPage>

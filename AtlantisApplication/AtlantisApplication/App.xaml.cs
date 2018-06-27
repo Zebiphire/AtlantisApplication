@@ -1,4 +1,5 @@
 using System;
+using AtlantisApplication.Views.Login;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,9 +10,11 @@ namespace AtlantisApplication
 	{
 		public App ()
 		{
-			InitializeComponent();
 
-			MainPage = new MainPage();
+            InitializeComponent();
+
+            //MainPage = new MainPage();
+		    MainPage = new NavigationPage(new MainPage());
 		}
 
 		protected override void OnStart ()

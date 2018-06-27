@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AtlantisApplication.Views;
+using AtlantisApplication.Views.Login;
 using Xamarin.Forms;
 
 namespace AtlantisApplication
@@ -17,7 +19,7 @@ namespace AtlantisApplication
 
         private void SensorsButtonClicked(object sender, EventArgs e)
         {
-
+            Navigation.PushModalAsync(new ListSensorsView());
         }
 
         private void CommandsButtonClicked(object sender, EventArgs e)

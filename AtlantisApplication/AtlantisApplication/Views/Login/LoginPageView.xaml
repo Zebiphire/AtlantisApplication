@@ -1,10 +1,48 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AtlantisApplication.Views.Login.LoginPageView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
-</ContentView>
+
+    
+
+
+    <!--<Grid Padding="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <StackLayout >
+                <Button x:Name="implicitButton" Text="Implicit flow" />
+                <Button x:Name="authorizationCodeButton" Text="Authorization Code flow" />
+                <Button x:Name="getProfileButton" Text="Get your profile data" IsEnabled="false" />
+                <Button x:Name="refreshButton" Text="Refresh Tokens" IsEnabled="false" />
+                <Label x:Name="nameText" Text="" HorizontalTextAlignment="Center" />
+                <Label x:Name="emailText" Text="" HorizontalTextAlignment="Center" />
+                <Image x:Name="profileImage" WidthRequest="300" HeightRequest="300" />
+            </StackLayout>
+        </ScrollView>
+        <Label x:Name="statusText" Grid.Row="1" HorizontalTextAlignment="Center" />
+    </Grid>-->
+    
+
+</ContentPage>
+
+
+
+
+<!--<ContentPage.Content>
+        <RelativeLayout>
+            <Label Text="test"
+                   RelativeLayout.XConstraint= "{ConstraintExpression
+                                      Type=Constant, Constant=10}"
+                   RelativeLayout.YConstraint= "{ConstraintExpression
+                                      Type=Constant, Constant=20}" />
+            <WebView Source="https://partners-login.eliotbylegrand.com/authorize?client_id=358ca400-fdf6-4357-8cca-27caa6699197&response_type=code&redirect_uri=https://login.microsoftonline.com/tfp/oauth2/nativeclient"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,
+                                     Constant=10}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,
+                                     Constant=50}"
+                     WidthRequest="1000" HeightRequest="1000" />
+        </RelativeLayout>
+    </ContentPage.Content> -->
