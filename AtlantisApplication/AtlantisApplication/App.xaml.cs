@@ -13,8 +13,8 @@ namespace AtlantisApplication
 
             InitializeComponent();
 
-            //MainPage = new MainPage();
-		    MainPage = new NavigationPage(new MainPage());
+            MainPage = new MainPage();
+		    //MainPage = new NavigationPage(new LoginPageView());
 		}
 
 		protected override void OnStart ()

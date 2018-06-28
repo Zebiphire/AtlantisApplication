@@ -18,19 +18,6 @@
     </ListView>>-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <ContentPage.ToolbarItems>
     <ToolbarItem Text="Refresh" Icon="ic_autorenew.png" Clicked="OnRefresh" />
     </ContentPage.ToolbarItems>

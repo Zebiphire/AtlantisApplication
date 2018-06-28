@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using AtlantisApplication.Data;
+using AtlantisApplication.Models;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -18,11 +19,13 @@ namespace AtlantisApplication
 	{
 	    public List<DeviceAPI> ListDeviceAPI = new List<DeviceAPI>();
 
+	    //public GetListSensorsRest getListSensorsRest = new GetListSensorsRest();
+
         public ListSensors ()
 		{
 			InitializeComponent ();
 
-		    ListDeviceAPI = GetListRest();
+            ListDeviceAPI = GetListRest();
 
 		    listView.ItemsSource = ListDeviceAPI;
 		}
@@ -31,7 +34,7 @@ namespace AtlantisApplication
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            
+            listView.SetBinding(ListView.SelectedItemProperty, "SelectedItem");
         }
 
 	    public static List<DeviceAPI> GetListRest()
@@ -53,5 +56,14 @@ namespace AtlantisApplication
 	        }
 	        return listDevice;
 	    }
+
+        private void OnRefresh(object sender, EventArgs e)
+        {
+            InitializeComponent();
+
+            ListDeviceAPI = GetListRest();
+
+            listView.ItemsSource = ListDeviceAPI;
+        }
     }
 }

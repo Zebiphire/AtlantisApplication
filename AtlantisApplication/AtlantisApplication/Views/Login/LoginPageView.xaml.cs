@@ -29,8 +29,14 @@ namespace AtlantisApplication.Views.Login
             var browser = new WebView();
             browser.Source = "https://partners-login.eliotbylegrand.com/authorize?client_id=358ca400-fdf6-4357-8cca-27caa6699197&response_type=code&redirect_uri=https://login.microsoftonline.com/tfp/oauth2/nativeclient";
             Content = browser;
-            Thread.Sleep(20000);
+            //Thread.Sleep(20000);
             //UrlWebViewSource test = new UrlWebViewSource();
+
+            browser.Navigating += (object sender, WebNavigatingEventArgs e) =>
+            {
+                var url = e.Url;
+                Console.WriteLine(url);
+            };
 
             string t = browser.Source.ToString();
 

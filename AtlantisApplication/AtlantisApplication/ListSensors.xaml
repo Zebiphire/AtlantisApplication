@@ -1,14 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AtlantisApplication.ListSensors">
+             x:Class="AtlantisApplication.ListSensors"
+             Title="Sensors list">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Sensor List" Text="Refresh" Icon="ic_autorenew.png" Clicked="OnRefresh" />
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="ic_autorenew.png" Text="Item 1" Priority="0" />
+        <ToolbarItem Name="MenuItem2" Order="Primary" Icon="ic_autorenew.png" Text="Item 2" Priority="1" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
+        <!--<ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected" SelectedItem="{Binding Source={x:Reference name}}">-->
         <ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="20,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                            <Label Text="{Binding name}" VerticalTextAlignment="Center" />
+                            <Label Text="{Binding name}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                            <Label Text="{Binding typeDevices.name}" VerticalTextAlignment="Center" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
