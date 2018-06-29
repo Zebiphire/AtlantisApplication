@@ -17,7 +17,6 @@ namespace AtlantisApplication.Models
             string DAY = "";
             string WEEK = "";
             string MONTH = "";
-            string YEAR = "";
             List<Atmospheric> listDevice = new List<Atmospheric>();
             foreach (var urlresult in listJsonDevice)
             {
@@ -25,8 +24,7 @@ namespace AtlantisApplication.Models
                 {
                     DAY = urlresult.DAY,
                     WEEK = urlresult.WEEK,
-                    MONTH = urlresult.MONTH,
-                    YEAR = urlresult.YEAR
+                    MONTH = urlresult.MONTH
                 });
             }
             return listDevice;

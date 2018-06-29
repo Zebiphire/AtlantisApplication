@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AtlantisApplication.ViewModels
 {
-    public class Temperature
+    public class CO2
     {
 
         public int id { get; set; }
@@ -13,9 +13,7 @@ namespace AtlantisApplication.ViewModels
         public string value { get; set; }
         public string date { get; set; }
 
-       // public List<Temperature> TemperatureList { get; set; }
 
-        
         /*public string DAY { get; set; }
         public string WEEK { get; set; }
         public string MONTH { get; set; }

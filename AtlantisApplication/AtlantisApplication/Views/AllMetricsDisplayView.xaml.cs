@@ -37,18 +37,30 @@ namespace AtlantisApplication.Views
         public async void GoOnHumidityPage(object sender, EventArgs e)
         {
             App.Current.MainPage = new NavigationPage(new humiditySensor());
-            //await Navigation.PushAsync(new humiditySensor());
-            // this.Navigation.PushAsync(new humiditySensor());
         }
 
         private void GoOnCO2Page(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new co2Sensor());
+            try
+            {
+                App.Current.MainPage = new NavigationPage(new co2Sensor());
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error, no connection to REST", ex.Message, "OK");
+            }
         }
 
         private void GoOnSoundLevelPage(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new soundLevelSensor());
+            try
+            {
+                App.Current.MainPage = new NavigationPage(new soundLevelSensor());
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error, no connection to REST", ex.Message, "OK");
+            }
         }
     }
 }

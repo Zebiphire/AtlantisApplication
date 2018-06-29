@@ -7,51 +7,60 @@
              BackgroundColor="#33334c">
     <ContentPage.Content>
 <ScrollView>
-                <Grid Padding="32" RowSpacing="32" ColumnSpacing="32">
-                    <Button HorizontalOptions="Center"
-                            VerticalOptions="Center"  
-                            WidthRequest="200"
-                            HeightRequest="200"
-                            Margin="10,10,10,10"
-                            BackgroundColor="#FFF25022"
-                            Text="Temperature" 
-                            TextColor="Gray" 
-                            Grid.Row="0" 
-                            Grid.Column="0"
-                            Clicked="GoOnTemperaturePage"/>
+               <!-- <Grid Padding="32" RowSpacing="32" ColumnSpacing="32" > -->
+            <Grid  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                    <Button HorizontalOptions="Center"
-                            VerticalOptions="Center" 
-                            Margin="10,10,10,10"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"  
+                        Image="Hum80.png"
+                        Text="Humidity"
+                        FontSize="Small"
+                        BackgroundColor="#FFF25022"
+                        TextColor="White"
+                        Grid.Row="0" 
+                        Grid.Column="0"
+                        Clicked="GoOnHumidityPage"/>
 
-                            BackgroundColor="#FF7FBA00"
-                            TextColor="Gray" 
-                            Text="Humidity"
-                            Grid.Row="0" 
-                            Grid.Column="1"
-                            Clicked="GoOnHumidityPage"/>
+                <Button HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand" 
+                        BackgroundColor="#FF7FBA00"
+                        TextColor="White" 
+                        Image="Sound80.png"
+                        FontSize="Small"
+                        Text="Sound Level"
+                        Grid.Row="0" 
+                        Grid.Column="1"
+                        Clicked="GoOnSoundLevelPage"/>
 
-                <Button HorizontalOptions="Center"
-                        VerticalOptions="Center"   
-                        Margin="10,10,10,10"
-                      
+                <Button HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"   
+                        Image="Air80.png"
                         BackgroundColor="#FF01A4EF"
                         Text="CO2" 
-                        TextColor="Gray"
+                        FontSize="Small"
+                        TextColor="White"
                         Grid.Row="1" 
                         Grid.Column="0"
                         Clicked="GoOnCO2Page"/>
 
-                <Button HorizontalOptions="Center"
-                        VerticalOptions="Center"  
-                        Margin="10,10,10,10"
-                       
+                <Button HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"  
+                        Image="Temp80.png"
+                        Text="Temperature"
+                        FontSize="Small"
                         BackgroundColor="#FFFFB901"
-                        TextColor="Gray" 
-                        Text="Sound Level"
+                        TextColor="White" 
                         Grid.Row="1" 
                         Grid.Column="1"
-                        Clicked="GoOnSoundLevelPage"/>
+                        Clicked="GoOnTemperaturePage"/>
             </Grid>
 
 </ScrollView>

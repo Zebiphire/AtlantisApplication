@@ -10,7 +10,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <!--<ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected" SelectedItem="{Binding Source={x:Reference name}}">-->
-        <ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelectedAsync">
+        <ListView x:Name="listView" Margin="10,50,0,0" ItemSelected="OnItemSelectedAsync">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

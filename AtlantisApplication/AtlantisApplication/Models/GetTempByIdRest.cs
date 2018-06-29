@@ -10,31 +10,42 @@ namespace AtlantisApplication.Models
 {
     class GetTempByIdRest
     {
-        public static List<Temperature>GetTempById(string Id)
+        public static List<Temperature>GetTempByDaysList(long day1, long day2)
         {
-            var url = "???";
+            var url = ServerInfo.GeoffreyTemperatureGetListTempUri;
             var client = new WebClient();
-            var method = "GET"; 
-            var parameters = new NameValueCollection
+            var method = "POST"; 
+            var parameters = new Date
             {
-                { "id", "Id" },
+                BeginDate = day1,
+                EndDate = day2
             };
 
-            var responseData = client.UploadValues(url, method, parameters);
+
+            var jsonDate += new JavaScriptSerializer().Serialize(newMetricSend);
+
+
+
+
+            //var responseData = client.UploadValues(url, method, parameters);
             //var responseString = Encoding.UTF8.GetString(responseData);
 
 
-            List<Temperature> listTemp = new List<Temperature>();
-            foreach (var urlresult in responseData)
-            {
-                listTemp.Add(new Temperature
-                {
-                    /*addressMac = urlresult.addressMac,
-                    name = urlresult.name,
-                    typeDevices = urlresult.typeDevices*/
-                });
-            }
-            return listTemp;
+            /*  List<Temperature> listTemp = new List<Temperature>();
+              foreach (var urlresult in responseData)
+              {
+                  listTemp.Add(new Temperature
+                  {
+
+                  });
+              }
+              return listTemp;*/
+        }
+
+        public class Date
+        {
+            public long BeginDate;
+            public long EndDate;
 
         }
     }

@@ -13,10 +13,6 @@ namespace AtlantisApplication.Models
         {
             var jsonUrlDevices = new WebClient().DownloadString("http://wcfwebservice.azurewebsites.net/Service.svc/devices/devices");
             var listJsonDevice = JsonConvert.DeserializeObject<List<DeviceAPI>>(jsonUrlDevices);
-            string DAY = "";
-            string WEEK = "";
-            string MONTH = "";
-            string YEAR = "";
             List<DeviceAPI> listDevice = new List<DeviceAPI>();
             foreach (var urlresult in listJsonDevice)
             {

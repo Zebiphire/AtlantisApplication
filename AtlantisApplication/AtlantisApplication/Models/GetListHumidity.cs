@@ -7,16 +7,16 @@ using Newtonsoft.Json;
 
 namespace AtlantisApplication.Models
 {
-    class GetListSound
+    class GetListHumidity
     {
-        public static List<Sound> GetSoundList()
+        public static List<Humidity> GetHumidityList()
         {
-            var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.GeoffreySoundWebUri);
-            var listJsonDevice = JsonConvert.DeserializeObject<List<Sound>>(jsonUrlDevices);
-            List<Sound> listDevice = new List<Sound>();
+            var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.GeoffreyHymidityWebUri);
+            var listJsonDevice = JsonConvert.DeserializeObject<List<Humidity>>(jsonUrlDevices);
+            List<Humidity> listDevice = new List<Humidity>();
             foreach (var urlresult in listJsonDevice)
             {
-                listDevice.Add(new Sound
+                listDevice.Add(new Humidity
                 {
                     dateType = urlresult.dateType,
                     value = urlresult.value,

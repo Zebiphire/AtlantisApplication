@@ -37,9 +37,9 @@ namespace AtlantisApplication
 	    {
 	        var jsonUrlDevices = new WebClient().DownloadString("http://wcfwebservice.azurewebsites.net/Service.svc/devices/devices");
 	        var listJsonDevice = JsonConvert.DeserializeObject<List<DeviceAPI>>(jsonUrlDevices);
-	        string adressMacDevice = "";
+	       /* string adressMacDevice = "";
 	        string nomDevice = "";
-	        string typeDevicesDevice = "";
+	        string typeDevicesDevice = "";*/
 	        List<DeviceAPI> listDevice = new List<DeviceAPI>();
 	        foreach (var urlresult in listJsonDevice)
 	        {
