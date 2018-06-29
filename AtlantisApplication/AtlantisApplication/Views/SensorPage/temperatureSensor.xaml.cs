@@ -35,30 +35,11 @@ namespace AtlantisApplication.Views.SensorPage
           
         }
 
-      /*  public static List<Temperature> GetTemperaturesList()
-        {
-                var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.GeoffreyTemperatureUri);
-                var listJsonDevice = JsonConvert.DeserializeObject<List<Temperature>>(jsonUrlDevices);
-
-                List<Temperature> listDevice = new List<Temperature>();
-
-                foreach (var urlresult in listJsonDevice)
-                {
-                    listDevice.Add(new Temperature
-                    {
-                        DAY = urlresult.DAY,
-                        WEEK = urlresult.WEEK,
-                        MONTH = urlresult.MONTH
-                    });
-                }
-                return listDevice;
-        }*/
         private void DoneButton_OnClicked(object sender, EventArgs e)
         {
             long day1 = (long)Convert.ToDouble(Day1_Editor);
             long day2 = (long)Convert.ToDouble(Day1_Editor);
             GetTempByIdRest.GetTempByDaysList(day1, day2);
-
         }
     }
 }
