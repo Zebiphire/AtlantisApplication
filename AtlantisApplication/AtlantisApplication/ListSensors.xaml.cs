@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using AtlantisApplication.Data;
 using AtlantisApplication.Models;
+using AtlantisApplication.Views.SensorPage;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,11 +32,6 @@ namespace AtlantisApplication
 		}
 
 	   
-
-        private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            listView.SetBinding(ListView.SelectedItemProperty, "SelectedItem");
-        }
 
 	    public static List<DeviceAPI> GetListRest()
 	    {
@@ -64,6 +60,29 @@ namespace AtlantisApplication
             ListDeviceAPI = GetListRest();
 
             listView.ItemsSource = ListDeviceAPI;
+        }
+	    //private INavigation _navigation;
+        private async void OnItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        {
+            //listView.SetBinding(ListView.SelectedItemProperty, "SelectedItem");
+            /*var item = e.SelectedItem;
+            var newpage = new temperatureSensor(item.addressMac);
+            await Navigation.PushAsync(newpage);*/
+
+            ListView myList = (ListView)sender;
+            var adress = (myList.SelectedItem as DeviceAPI);
+            int id = adress.id;
+          //  await Application.Current.MainPage.Navigation.PushAsync(new temperatureSensor(id));
+
+
+            //await Navigation.PushAsync(new temperatureSensor(adress));
+
+
+            //myList.SelectedItem = null; // de-select the row
+            //await _navigation.PushAsync(new temperatureSensor(adress));
+            /*var item = e.SelectedItem;
+            string txt = item.ToString();
+            DisplayAlert("Alert", txt, "OK");*/
         }
     }
 }

@@ -9,13 +9,14 @@ namespace AtlantisApplication.Models
 {
     class GetListSensorsRest
     {
-        public static List<DeviceAPI> GetListSensors()
+        public static List<DeviceAPI> GetSensorsList()
         {
             var jsonUrlDevices = new WebClient().DownloadString("http://wcfwebservice.azurewebsites.net/Service.svc/devices/devices");
             var listJsonDevice = JsonConvert.DeserializeObject<List<DeviceAPI>>(jsonUrlDevices);
-            string adressMacDevice = "";
-            string nomDevice = "";
-            string typeDevicesDevice = "";
+            string DAY = "";
+            string WEEK = "";
+            string MONTH = "";
+            string YEAR = "";
             List<DeviceAPI> listDevice = new List<DeviceAPI>();
             foreach (var urlresult in listJsonDevice)
             {

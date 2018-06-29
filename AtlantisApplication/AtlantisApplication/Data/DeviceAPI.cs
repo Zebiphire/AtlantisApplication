@@ -17,12 +17,7 @@ namespace AtlantisApplication.Data
         public string name { get; set; }
         public TypeDevices typeDevices { get; set; }
 
-
-
-
-
-
-
+        
 
         /*public long id;
 

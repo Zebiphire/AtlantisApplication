@@ -14,6 +14,7 @@
                 <StackLayout Margin="30,0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <!--<Button Margin="0,20,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="#c1ab24" Text="SENSORS" HorizontalOptions="FillAndExpand" Clicked="SensorsButtonClicked" />-->
                     <Button x:Name="InnerButton" Text="SENSORS" Margin="0,20,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="Tomato" TextColor="White" BorderWidth="1" BorderColor="OrangeRed" HeightRequest="50" CornerRadius="25" Clicked="SensorsButtonClicked" IsVisible="True" />
+                    <Button Margin="0,10,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="#a4881c" CornerRadius="25" Text="METRICS ON CITY" HorizontalOptions="FillAndExpand" Clicked="MetricsButtonClicked" />
                     <Button Margin="0,10,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="#a4881c" CornerRadius="25" Text="CHECK INTERNET" HorizontalOptions="FillAndExpand" Clicked="CheckInternetButtonClicked" />
                     <Button Margin="0,10,0,0" Style="{StaticResource boutonLabStyle}" BackgroundColor="#c60e3c" CornerRadius="25" Text="ABOUT" HorizontalOptions="FillAndExpand" Clicked="AboutButtonClicked" />
                 </StackLayout>

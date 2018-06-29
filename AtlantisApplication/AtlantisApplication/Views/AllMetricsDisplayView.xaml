@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:AtlantisApplication.Models;assembly=AtlantisApplication"
+             x:Class="AtlantisApplication.Views.AllMetricsDisplayView"
+             Title="Choose your metrics"
+             BackgroundColor="#33334c">
+    <ContentPage.Content>
+<ScrollView>
+                <Grid Padding="32" RowSpacing="32" ColumnSpacing="32">
+                    <Button HorizontalOptions="Center"
+                            VerticalOptions="Center"  
+                            WidthRequest="200"
+                            HeightRequest="200"
+                            Margin="10,10,10,10"
+                            BackgroundColor="#FFF25022"
+                            Text="Temperature" 
+                            TextColor="Gray" 
+                            Grid.Row="0" 
+                            Grid.Column="0"
+                            Clicked="GoOnTemperaturePage"/>
+
+                    <Button HorizontalOptions="Center"
+                            VerticalOptions="Center" 
+                            Margin="10,10,10,10"
+
+                            BackgroundColor="#FF7FBA00"
+                            TextColor="Gray" 
+                            Text="Humidity"
+                            Grid.Row="0" 
+                            Grid.Column="1"
+                            Clicked="GoOnHumidityPage"/>
+
+                <Button HorizontalOptions="Center"
+                        VerticalOptions="Center"   
+                        Margin="10,10,10,10"
+                      
+                        BackgroundColor="#FF01A4EF"
+                        Text="CO2" 
+                        TextColor="Gray"
+                        Grid.Row="1" 
+                        Grid.Column="0"
+                        Clicked="GoOnCO2Page"/>
+
+                <Button HorizontalOptions="Center"
+                        VerticalOptions="Center"  
+                        Margin="10,10,10,10"
+                       
+                        BackgroundColor="#FFFFB901"
+                        TextColor="Gray" 
+                        Text="Sound Level"
+                        Grid.Row="1" 
+                        Grid.Column="1"
+                        Clicked="GoOnSoundLevelPage"/>
+            </Grid>
+
+</ScrollView>
+    </ContentPage.Content>
+
+
+
+    <!--<ScrollView>
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid BackgroundColor="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalOptions="Center"  BackgroundColor="#ff4284" Padding="10">
+                </Grid>
+                <Label Grid.Column="1" 
+                           Text="Choose your metrics" 
+                           TextColor="#ff4284" 
+                           FontSize="20"
+                           Margin="5,0,0,0" 
+                           HorizontalOptions="Start" 
+                           VerticalOptions="Center"/>
+                </Grid>
+                <StackLayout Spacing="0" Grid.Row="1">
+                    <models:MyCustomControl BackgroundColor="#76dab2" 
+                                            TitleText="TEMPERATURE" 
+                                            Image="logo_weather.png"/>
+
+                    <models:MyCustomControl BackgroundColor="#7c57e4" 
+                                            TitleText="BRIGHTNESS" 
+                                            Image="logo_weather.png"/>
+
+                <models:MyCustomControl BackgroundColor="#76dab2" 
+                                            TitleText="HUMIDITY" 
+                                            Image="logo_weather.png"/>
+
+                <models:MyCustomControl BackgroundColor="#7c57e4" 
+                                            TitleText="ATMOSPHERICS" 
+                                            Image="logo_weather.png"/>
+            </StackLayout>
+            </Grid>
+        </ScrollView>-->
+        <!--<StackLayout>
+            <Grid Padding="32" RowSpacing="32" ColumnSpacing="32">
+                <BoxView  WidthRequest="200" HeightRequest="200" Grid.Row="0" Grid.Column="0" Color="#FFF25022"/>
+                <BoxView  WidthRequest="200" HeightRequest="200" Grid.Row="0" Grid.Column="1" Color="#FF7FBA00" />
+                <BoxView  WidthRequest="200" HeightRequest="200" Grid.Row="1" Grid.Column="0" Color="#FF01A4EF" />
+                <BoxView  WidthRequest="200" HeightRequest="200" Grid.Row="1" Grid.Column="1" Color="#FFFFB901" />
+            </Grid>
+            <Grid x:Name="grid" 
+                  Padding="10,40,10,10"
+                  HeightRequest="160"
+                  VerticalOptions="Start">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="image"
+                       Source="logo_weather.png"
+                       HeightRequest="100"
+                       HorizontalOptions="Center"/>
+                <Label x:Name="title"
+                       Text="BASKETBALL"
+                       Grid.Row="1" 
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       TextColor="Red"
+                       HorizontalOptions="Center" 
+                       FontAttributes="Bold"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>-->
+</ContentPage>

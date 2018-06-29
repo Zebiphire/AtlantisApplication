@@ -1,12 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AtlantisApplication.Views.SensorPage.temperatureSensor">
+             x:Class="AtlantisApplication.Views.SensorPage.temperatureSensor"
+             Title="Temperature Page">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView x:Name="listTemp" Margin="20">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Average Day:" HorizontalOptions="FillAndExpand" />
+                                <Label Text="{Binding id}" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding deviceType}" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding dateType}" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding value}" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding date}" FontSize="Medium" FontAttributes="Bold" />
+                            </StackLayout>
+                           <!-- <StackLayout Orientation="Horizontal">
+                                <Label Text="Average Week:" HorizontalOptions="FillAndExpand" />
+                                <Label Text="{Binding Week}" FontSize="Medium" FontAttributes="Bold" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Average Month:" HorizontalOptions="FillAndExpand" />
+                                <Label Text="{Binding Month}" FontSize="Medium" FontAttributes="Bold" />
+                            </StackLayout>-->
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
-</ContentPage>
+    </ContentPage>
+
+
+
+    <!--
+    <ContentPage.Content>
+        <ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected" SelectedItem="{Binding Source={x:Reference name}}">
+        <ListView Margin="20">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="20,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                            <Label Text="Mac adress: " VerticalTextAlignment="Center" FontSize="Medium"  TextColor="Black" FontAttributes="Bold" />
+                            <Label x:Name="ViewTemp" Text="{Binding adress}" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage> -->

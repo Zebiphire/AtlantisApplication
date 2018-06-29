@@ -9,7 +9,8 @@ namespace AtlantisApplication.Data
 {
     public class DeviceAPIManager
     {
-        const string Url = "http://wcfwebservice.azurewebsites.net/Service.svc/calculs/devices";
+        //const string Url = "http://wcfwebservice.azurewebsites.net/Service.svc/calculs/devices";
+        const string Url = "http://10.167.128.145:8080/mobile-transaction/devices"; 
         private string _authorizationKey;
 
         private async Task<HttpClient> GetClient()

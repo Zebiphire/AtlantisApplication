@@ -36,7 +36,7 @@ namespace AtlantisApplication
 
         private void MetricsButtonClicked(object sender, EventArgs e)
         {
-
+            Navigation.PushModalAsync(new AllMetricsDisplayView());
         }
 
         private void CheckInternetButtonClicked(object sender, EventArgs e)
