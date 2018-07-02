@@ -21,12 +21,12 @@
             </ListView.ItemTemplate>
         </ListView>
     </ContentPage.Content>
-    <StackLayout Padding="5,10">
+   <!-- <StackLayout Padding="5,10">
         <Label Text="2 date for the temperature"/>
         <Editor x:Name="Day1_Editor" Text="Temp day 1" BackgroundColor="Cyan" HeightRequest="100" Keyboard="Numeric"/>
         <Editor x:Name="Day2_Editor" Text="Temp day 2" BackgroundColor="CadetBlue" HeightRequest="100"/>
         <Button Clicked="DoneButton_OnClicked" x:Name="DoneButton" Text="Go !!!!!" TextColor="Red" BackgroundColor="DarkOrange" FontSize="Large" Command="{Binding DoneEditingCommand}" HorizontalOptions="Center" VerticalOptions="End"/>
-    </StackLayout>
+    </StackLayout>-->
 </ContentPage>
 
 

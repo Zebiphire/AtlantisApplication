@@ -26,27 +26,34 @@ namespace AtlantisApplication.Views.Login
         {
             InitializeComponent();
 
-            var browser = new WebView();
-            browser.Source = "https://partners-login.eliotbylegrand.com/authorize?client_id=358ca400-fdf6-4357-8cca-27caa6699197&response_type=code&redirect_uri=https://login.microsoftonline.com/tfp/oauth2/nativeclient";
-            Content = browser;
-            //Thread.Sleep(20000);
-            //UrlWebViewSource test = new UrlWebViewSource();
-
-            browser.Navigating += (object sender, WebNavigatingEventArgs e) =>
+        }
+        void OnButtonClicked(object sender, EventArgs args)
+        {
+            Button_Login.IsVisible = false;
+            // Show overlay with ProgressBar. 
+            overlay.IsVisible = true;
+            TimeSpan duration = TimeSpan.FromSeconds(3);
+            DateTime startTime = DateTime.Now;
+            // Start timer. 
+            Device.StartTimer(TimeSpan.FromSeconds(0.1), () =>
             {
-                var url = e.Url;
-                Console.WriteLine(url);
-            };
+                double progress = (DateTime.Now - startTime).TotalMilliseconds / duration.TotalMilliseconds;
+                progressBar.Progress = progress;
+                bool continueTimer = progress < 1;
 
-            string t = browser.Source.ToString();
+                if (!continueTimer)
+                {
+                    // Hide overlay. 
+                    overlay.IsVisible = false;
+                }
+                return continueTimer;
+            });
+        }
 
-            //string t = test.Url;
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine(t);
-            
-           
+        async Task Button_Login_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new MainPage());
+            //await Navigation.PushModalAsync(new Overlay());
         }
     }
 }

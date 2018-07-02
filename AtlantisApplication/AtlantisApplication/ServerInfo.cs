@@ -20,6 +20,7 @@ namespace AtlantisApplication
         /*
          * Les Url de Geoffrey pour récupérer pour chaque type les 3 éléments de moyenne
          */
+        public static Uri GeoffreyDeviceWebUri = new Uri(" http://ec2-34-217-71-154.us-west-2.compute.amazonaws.com:8080/mobile-transaction/devices");
         public static Uri GeoffreyTemperatureWebUri = new Uri("http://ec2-34-217-71-154.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/temperature");
         public static Uri GeoffreySoundWebUri = new Uri("http://ec2-34-217-71-154.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/sound-level");
         public static Uri GeoffreyCo2WebUri = new Uri("http://ec2-34-217-71-154.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/co2");
@@ -29,7 +30,8 @@ namespace AtlantisApplication
         /*
          *  En local Url de Geoffrey pour récupérer pour chaque type les 3 éléments de moyenne
          */
-        public static Uri GeoffreyTemperatureGetListTempUri = new Uri(" http://10.167.128.145/mobile-transaction/data/date-range");
+        public static Uri GeoffreyTemperatureGetListDevicesUri = new Uri("http://10.167.128.145:8080/mobile-transaction/devices");
+        public static Uri GeoffreyTemperatureGetListTempUri = new Uri("http://10.167.128.145/mobile-transaction/data/date-range");
         public static Uri GeoffreyTemperatureUri = new Uri("http://10.167.128.145:8080/mobile-transaction/data/temperature");
         public static Uri GeoffreySoundUri = new Uri("http://10.167.128.145:8080/mobile-transaction/data/sound-level");
         public static Uri GeoffreyCo2Uri = new Uri("http://10.167.128.145:8080/mobile-transaction/data/co2");

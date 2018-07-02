@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlantisApplication.Views.Login.LoginPageEliotView">
+    <!--<ContentPage.Content>
+        <RelativeLayout>
+            <Label Text="test"
+                   RelativeLayout.XConstraint= "{ConstraintExpression
+                                      Type=Constant, Constant=10}"
+                   RelativeLayout.YConstraint= "{ConstraintExpression
+                                      Type=Constant, Constant=20}" />
+            <WebView Source="https://partners-login.eliotbylegrand.com/authorize?client_id=358ca400-fdf6-4357-8cca-27caa6699197&response_type=code&redirect_uri=https://login.microsoftonline.com/tfp/oauth2/nativeclient"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,
+                                     Constant=10}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,
+                                     Constant=50}"
+                     WidthRequest="1000" HeightRequest="1000" />
+        </RelativeLayout>
+    </ContentPage.Content> -->
+
+</ContentPage>

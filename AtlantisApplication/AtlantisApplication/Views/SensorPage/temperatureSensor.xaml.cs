@@ -37,9 +37,9 @@ namespace AtlantisApplication.Views.SensorPage
 
         private void DoneButton_OnClicked(object sender, EventArgs e)
         {
-            long day1 = (long)Convert.ToDouble(Day1_Editor);
+           /* long day1 = (long)Convert.ToDouble(Day1_Editor);
             long day2 = (long)Convert.ToDouble(Day1_Editor);
-            GetTempByIdRest.GetTempByDaysList(day1, day2);
+            GetTempByIdRest.GetTempByDaysList(day1, day2);*/
         }
     }
 }

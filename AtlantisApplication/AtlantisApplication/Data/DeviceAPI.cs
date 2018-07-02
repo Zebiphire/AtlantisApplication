@@ -16,8 +16,10 @@ namespace AtlantisApplication.Data
         public int id { get; set; }
         public string name { get; set; }
         public TypeDevices typeDevices { get; set; }
+        public string disabled { get; set; }
 
-        
+        public string nameDeviceType { get; set; }
+
 
         /*public long id;
 

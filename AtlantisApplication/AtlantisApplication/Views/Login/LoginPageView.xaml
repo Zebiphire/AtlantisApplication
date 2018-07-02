@@ -1,27 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AtlantisApplication.Views.Login.LoginPageView">
-
-
-    <!--<ContentPage.Content>
-        <RelativeLayout>
-            <Label Text="test"
-                   RelativeLayout.XConstraint= "{ConstraintExpression
-                                      Type=Constant, Constant=10}"
-                   RelativeLayout.YConstraint= "{ConstraintExpression
-                                      Type=Constant, Constant=20}" />
-            <WebView Source="https://partners-login.eliotbylegrand.com/authorize?client_id=358ca400-fdf6-4357-8cca-27caa6699197&response_type=code&redirect_uri=https://login.microsoftonline.com/tfp/oauth2/nativeclient"
-                     RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,
-                                     Constant=10}"
-                     RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,
-                                     Constant=50}"
-                     WidthRequest="1000" HeightRequest="1000" />
-        </RelativeLayout>
-    </ContentPage.Content> -->
-
-
-
+             x:Class="AtlantisApplication.Views.Login.LoginPageView"
+             Title="Guest account">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#0072C5</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <!-- <ScrollView>-->
+        <StackLayout Spacing="5" >
+            <StackLayout>
+                <Image Source="logo_eliot.png"/>
+            </StackLayout>
+            <!-- <Label HeightRequest="110"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="OperatorLogbook Mobile" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>-->
+            <Entry  Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Email Eliot">
+                <Entry.Effects>
+                </Entry.Effects>
+            </Entry>
+            <Entry Margin="20,0,20,0" 
+                        HeightRequest="50" IsPassword="true"
+                        Placeholder="Password Eliot">
+                <Entry.Effects>
+                </Entry.Effects>
+            </Entry>
+            <Button x:Name="Button_Login"
+                         Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="Login"  Clicked="Button_Login_Clicked"
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"/>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 3, 3" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="CornflowerBlue" Padding="20, 0">
+                <ProgressBar x:Name="progressBar" VerticalOptions="Center" />
+            </ContentView>
+            <StackLayout Spacing="20" Padding="40,40,40,40">
+                <Image Source="logo_legrand.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+        <!-- </ScrollView> -->
+    </ContentPage.Content>
 </ContentPage>
 
 

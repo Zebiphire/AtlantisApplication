@@ -10,28 +10,36 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <!--<ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected" SelectedItem="{Binding Source={x:Reference name}}">-->
-        <ListView x:Name="listView" Margin="10,50,0,0" ItemSelected="OnItemSelectedAsync">
+        <ListView x:Name="listView" Margin="5,5,5,5" ItemSelected="OnItemSelectedAsync">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" >
                             <StackLayout Padding="5,0,5,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                            <!--<Label Text="{Binding name}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                            <Label Text="{Binding typeDevices.name}" VerticalTextAlignment="Center" />-->
-                             <StackLayout Padding="5,20,5,20" Orientation="Horizontal" >
+                               <Label Text="{Binding name}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding nameDeviceType}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding disabled}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding addressMac}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+
+
+                                <!--  <StackLayout Padding="5,20,5,20" Orientation="Horizontal" >
                                 <Label Text="Name: " VerticalTextAlignment="Center" FontSize="Medium"  TextColor="Black" FontAttributes="Bold" />
                                 <Label Text="{Binding name}" VerticalTextAlignment="Center" FontSize="Medium"  TextColor="Black"/>
                             </StackLayout>
-                            <StackLayout Padding="5,20,5,20" Orientation="Horizontal" >
-                                <Label Text="Sensor Type: "  VerticalTextAlignment="Center" FontSize="Small" FontAttributes="Bold" />
-                                <Label Text="{Binding typeDevices.name}"  VerticalTextAlignment="Center" FontSize="Small" />
+                                <StackLayout Padding="5,20,5,20" Orientation="Horizontal" >
+                                    <Label Text="Name Type Device: "  VerticalTextAlignment="Center" FontSize="Small" FontAttributes="Bold" />
+                                    <Label Text="{Binding nameDeviceType}" VerticalTextAlignment="Center" FontSize="Small" />
+                                </StackLayout>
+                                <StackLayout Padding="5,20,5,20" Orientation="Horizontal" >
+                                <Label Text="Disabled ?: "  VerticalTextAlignment="Center" FontSize="Small" FontAttributes="Bold" />
+                                    <Label Text="{Binding disabled}"  VerticalTextAlignment="Center" FontSize="Small" />
                             </StackLayout>
-                            <StackLayout Padding="5,20,5,20" Orientation="Horizontal" >
-                                <Label Text="MAC adress: "  VerticalTextAlignment="Center" FontSize="Small" FontAttributes="Bold" />
-                                <Label Text="{Binding addressMac}" VerticalTextAlignment="Center" FontSize="Small" />
+                                <StackLayout Padding="5,20,5,20" Orientation="Horizontal" >
+                                    <Label Text="MAC adress: "  VerticalTextAlignment="Center" FontSize="Small" FontAttributes="Bold" />
+                                    <Label Text="{Binding addressMac}" VerticalTextAlignment="Center" FontSize="Small" />
+                                </StackLayout>-->
+                            </StackLayout> 
                             </StackLayout>
-                        </StackLayout>
-                       </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

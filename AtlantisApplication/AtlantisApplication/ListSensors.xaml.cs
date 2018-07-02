@@ -35,20 +35,25 @@ namespace AtlantisApplication
 
 	    public static List<DeviceAPI> GetListRest()
 	    {
-	        var jsonUrlDevices = new WebClient().DownloadString("http://wcfwebservice.azurewebsites.net/Service.svc/devices/devices");
+	        var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.GeoffreyTemperatureGetListDevicesUri);
 	        var listJsonDevice = JsonConvert.DeserializeObject<List<DeviceAPI>>(jsonUrlDevices);
-	       /* string adressMacDevice = "";
-	        string nomDevice = "";
-	        string typeDevicesDevice = "";*/
-	        List<DeviceAPI> listDevice = new List<DeviceAPI>();
+            List<DeviceAPI> listDevice = new List<DeviceAPI>();
+
+	        Console.WriteLine("jsonUrlDevicesjsonUrlDevicesjsonUrlDevicesjsonUrlDevices");
+            Console.WriteLine(jsonUrlDevices.ToString());
+
 	        foreach (var urlresult in listJsonDevice)
 	        {
 	            listDevice.Add(new DeviceAPI
 	            {
 	                addressMac = urlresult.addressMac,
-	                name = urlresult.name,
-	                typeDevices = urlresult.typeDevices
-	            });
+                    name = urlresult.name,
+	                nameDeviceType = urlresult.nameDeviceType,
+	                disabled = urlresult.disabled,
+	                id = urlresult.id,
+	                lastName = urlresult.lastName,
+                    name
+                });
 	        }
 	        return listDevice;
 	    }
