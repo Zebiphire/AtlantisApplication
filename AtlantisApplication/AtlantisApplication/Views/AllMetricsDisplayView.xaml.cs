@@ -36,7 +36,14 @@ namespace AtlantisApplication.Views
 
         public async void GoOnHumidityPage(object sender, EventArgs e)
         {
-            App.Current.MainPage = new NavigationPage(new humiditySensor());
+            try
+            {
+                App.Current.MainPage = new NavigationPage(new humiditySensor());
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error, no connection to REST", ex.Message, "OK");
+            }
         }
 
         private void GoOnCO2Page(object sender, EventArgs e)

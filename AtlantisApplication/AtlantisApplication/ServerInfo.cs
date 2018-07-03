@@ -20,15 +20,15 @@ namespace AtlantisApplication
         /*
          * Les Url de Geoffrey pour récupérer pour chaque type les 3 éléments de moyenne
          */
-        public static Uri GeoffreyDeviceWebUri = new Uri(" http://ec2-34-217-71-154.us-west-2.compute.amazonaws.com:8080/mobile-transaction/devices");
-        public static Uri GeoffreyTemperatureWebUri = new Uri("http://ec2-34-217-71-154.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/temperature");
-        public static Uri GeoffreySoundWebUri = new Uri("http://ec2-34-217-71-154.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/sound-level");
-        public static Uri GeoffreyCo2WebUri = new Uri("http://ec2-34-217-71-154.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/co2");
-        public static Uri GeoffreyHymidityWebUri = new Uri("http://ec2-34-217-71-154.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/humidity");
-
+        public static Uri GeoffreyDeviceWebUri = new Uri(" http://ec2-34-216-32-42.us-west-2.compute.amazonaws.com:8080/mobile-transaction/devices");
+        public static Uri GeoffreyTemperatureWebUri = new Uri("http://ec2-34-216-32-42.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/temperature");
+        public static Uri GeoffreySoundWebUri = new Uri("http://ec2-34-216-32-42.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/sound-level");
+        public static Uri GeoffreyCo2WebUri = new Uri("http://ec2-34-216-32-42.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/co2");
+        public static Uri GeoffreyHymidityWebUri = new Uri("http://ec2-34-216-32-42.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/humidity");
+        public static Uri GeoffreyTemperatureGetListWebTempUri = new Uri("http://ec2-34-216-32-42.us-west-2.compute.amazonaws.com:8080/mobile-transaction/data/date-range");
 
         /*
-         *  En local Url de Geoffrey pour récupérer pour chaque type les 3 éléments de moyenne
+         *  En local Url de Geoffrey pour récupérer pour chaque type les 3 éléments de moyenne 172.20.10.2
          */
         public static Uri GeoffreyTemperatureGetListDevicesUri = new Uri("http://10.167.128.145:8080/mobile-transaction/devices");
         public static Uri GeoffreyTemperatureGetListTempUri = new Uri("http://10.167.128.145/mobile-transaction/data/date-range");

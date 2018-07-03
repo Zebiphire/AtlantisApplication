@@ -15,48 +15,52 @@ using Xamarin.Forms.Xaml;
 
 namespace AtlantisApplication
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ListSensors : ContentPage
-	{
-	    public List<DeviceAPI> ListDeviceAPI = new List<DeviceAPI>();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ListSensors : ContentPage
+    {
+        public List<DeviceAPI> ListDeviceAPI = new List<DeviceAPI>();
 
-	    //public GetListSensorsRest getListSensorsRest = new GetListSensorsRest();
+        //public GetListSensorsRest getListSensorsRest = new GetListSensorsRest();
 
-        public ListSensors ()
-		{
-			InitializeComponent ();
+        public ListSensors()
+        {
+            InitializeComponent();
 
             ListDeviceAPI = GetListRest();
 
-		    listView.ItemsSource = ListDeviceAPI;
-		}
+            listView.ItemsSource = ListDeviceAPI;
 
-	   
+        }
 
-	    public static List<DeviceAPI> GetListRest()
-	    {
-	        var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.GeoffreyTemperatureGetListDevicesUri);
-	        var listJsonDevice = JsonConvert.DeserializeObject<List<DeviceAPI>>(jsonUrlDevices);
+        bool _isOwned;
+
+        public bool IsOwned
+        {
+            get { return _isOwned; }
+            set { _isOwned = value; }
+        }
+
+        public static List<DeviceAPI> GetListRest()
+        {
+            var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.GeoffreyDeviceWebUri);
+            var listJsonDevice = JsonConvert.DeserializeObject<List<DeviceAPI>>(jsonUrlDevices);
             List<DeviceAPI> listDevice = new List<DeviceAPI>();
 
-	        Console.WriteLine("jsonUrlDevicesjsonUrlDevicesjsonUrlDevicesjsonUrlDevices");
-            Console.WriteLine(jsonUrlDevices.ToString());
-
-	        foreach (var urlresult in listJsonDevice)
-	        {
-	            listDevice.Add(new DeviceAPI
-	            {
-	                addressMac = urlresult.addressMac,
+            foreach (var urlresult in listJsonDevice)
+            {
+                listDevice.Add(new DeviceAPI
+                {
+                    addressMac = urlresult.addressMac,
                     name = urlresult.name,
-	                nameDeviceType = urlresult.nameDeviceType,
-	                disabled = urlresult.disabled,
-	                id = urlresult.id,
-	                lastName = urlresult.lastName,
-                    name
+                    nameDeviceType = urlresult.nameDeviceType,
+                    disabled = urlresult.disabled,
+                    id = urlresult.id,
+                    employees = urlresult.employees
                 });
-	        }
-	        return listDevice;
-	    }
+            }
+
+            return listDevice;
+        }
 
         private void OnRefresh(object sender, EventArgs e)
         {
@@ -66,7 +70,8 @@ namespace AtlantisApplication
 
             listView.ItemsSource = ListDeviceAPI;
         }
-	    //private INavigation _navigation;
+
+        //private INavigation _navigation;
         private async void OnItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
             //listView.SetBinding(ListView.SelectedItemProperty, "SelectedItem");
@@ -74,10 +79,11 @@ namespace AtlantisApplication
             var newpage = new temperatureSensor(item.addressMac);
             await Navigation.PushAsync(newpage);*/
 
-            ListView myList = (ListView)sender;
+            ListView myList = (ListView) sender;
             var adress = (myList.SelectedItem as DeviceAPI);
             int id = adress.id;
-          //  await Application.Current.MainPage.Navigation.PushAsync(new temperatureSensor(id));
+
+            //await Application.Current.MainPage.Navigation.PushAsync(new temperatureSensor(id));
 
 
             //await Navigation.PushAsync(new temperatureSensor(adress));
@@ -86,8 +92,44 @@ namespace AtlantisApplication
             //myList.SelectedItem = null; // de-select the row
             //await _navigation.PushAsync(new temperatureSensor(adress));
             /*var item = e.SelectedItem;
-            string txt = item.ToString();
+            string txt = item.ToString()
             DisplayAlert("Alert", txt, "OK");*/
         }
+
+        private void OnToggledEvent(object sender, ToggledEventArgs e)
+        {
+            bool isToggled = e.Value;
+            //string id = "";
+
+            //Button button = (Button)Sender;
+
+           // list test = new listView();
+
+            List<DeviceAPI> NewListTest = new List<DeviceAPI>();
+            string id = listView.Parent.ToString();
+
+            NewListTest = listView.Parent.
+
+            Console.WriteLine("CoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucou");
+            Console.WriteLine(id);
+
+
+            //StackLayout listViewItem = (StackLayout)listView.Parent;
+            //Label label = (Label)listViewItem.Children[0];
+
+            //var item = ((Entry)sender).BindingContext;
+
+            Console.WriteLine("itemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitem");
+           // Console.WriteLine(item);
+
+            /* var toggledSwitch = (ExtendedSwitch) sender;
+             bool item = toggledSwitch.MyItem;*/
+        }
+
+
+       /* internal class ExtendedSwitch
+        {
+            public bool MyItem { get; set; }
+        }*/
     }
 }

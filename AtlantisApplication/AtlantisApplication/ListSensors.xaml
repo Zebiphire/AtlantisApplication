@@ -3,23 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AtlantisApplication.ListSensors"
              Title="Sensors list">
+
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Sensor List" Text="Refresh" Icon="ic_autorenew.png" Clicked="OnRefresh" />
         <ToolbarItem Name="MenuItem1" Order="Primary" Icon="ic_autorenew.png" Text="Item 1" Priority="0" />
         <ToolbarItem Name="MenuItem2" Order="Primary" Icon="ic_autorenew.png" Text="Item 2" Priority="1" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
+
         <!--<ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected" SelectedItem="{Binding Source={x:Reference name}}">-->
-        <ListView x:Name="listView" Margin="5,5,5,5" ItemSelected="OnItemSelectedAsync">
+        <ListView x:Name="listView"  ItemSelected="OnItemSelectedAsync" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" >
-                            <StackLayout Padding="5,0,5,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                               <Label Text="{Binding name}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                                <Label Text="{Binding nameDeviceType}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                    <ViewCell x:Name="switchBool">
+                        <StackLayout Margin="5,5,5,5" HorizontalOptions="StartAndExpand" Orientation="Horizontal" >
+                            <StackLayout  VerticalOptions="StartAndExpand" Orientation="Vertical">
+                                <Label Text="Name of the Device: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding name}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+
+                                <Label Text="Device disabled ?: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
                                 <Label Text="{Binding disabled}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Switch x:Name="NameSwitch" IsToggled="{Binding disabled}" Toggled="OnToggledEvent" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+
+                                <Label Text="MAC adress: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
                                 <Label Text="{Binding addressMac}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+
+                                <Label Text="Name of the Device: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding employees.id}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+
+                                <Label Text="Name of the DeviceType: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding nameDeviceType}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+
+                                <Label Text="Name of the employee: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding employees.name}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+
+                                <Label Text="Lastname of the employee: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding employees.lastName}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
 
 
                                 <!--  <StackLayout Padding="5,20,5,20" Orientation="Horizontal" >
@@ -38,11 +58,11 @@
                                     <Label Text="MAC adress: "  VerticalTextAlignment="Center" FontSize="Small" FontAttributes="Bold" />
                                     <Label Text="{Binding addressMac}" VerticalTextAlignment="Center" FontSize="Small" />
                                 </StackLayout>-->
-                            </StackLayout> 
                             </StackLayout>
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </ContentPage.Content>
-</ContentPage>
+</ContentPage> 

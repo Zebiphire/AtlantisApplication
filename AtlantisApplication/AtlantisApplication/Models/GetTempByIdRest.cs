@@ -3,54 +3,70 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using AtlantisApplication.Data;
 using AtlantisApplication.ViewModels;
 using Newtonsoft.Json;
 
 namespace AtlantisApplication.Models
 {
-    class GetTempByIdRest
+    public class GetTempByIdRest
     {
-       // public static List<Temperature>GetTempByDaysList(long day1, long day2)
-        public static void GetTempByDaysList(long day1, long day2)
+        public static string _authorizationKey;
+
+
+        public static List<Temperature> GetListCustomTemperatures(string idType, long day1, long day2)
         {
-            var url = ServerInfo.GeoffreyTemperatureGetListTempUri;
-            var client = new WebClient();
-            var method = "POST"; 
-            var parameters = new Date
+            string Url = "http://10.167.128.145:8080/mobile-transaction/data/date-range?startDate=" + day1 + "&endDate=" + day2 + "&deviceType=" + idType;
+            var jsonUrlDevices = new WebClient().DownloadString(Url);
+            var listJsonDevice = JsonConvert.DeserializeObject<List<Temperature>>(jsonUrlDevices);
+
+            List<Temperature> listTemp = new List<Temperature>();
+
+            foreach (var urlresult in listJsonDevice)
             {
-                BeginDate = day1,
-                EndDate = day2
-            };
-
-
-            var JsonDate = JsonConvert.SerializeObject(parameters);
-
-            SendDateToUrl(JsonDate);
-
-            //return
-
-           // var responseData = client.UploadValues(url, method, parameters);
-            //var responseString = Encoding.UTF8.GetString(responseData);
-
-
-            /*  List<Temperature> listTemp = new List<Temperature>();
-              foreach (var urlresult in responseData)
-              {
-                  listTemp.Add(new Temperature
-                  {
-
-                  });
-              }
-              return listTemp;*/
+                listTemp.Add(new Temperature
+                {
+                    id = urlresult.id,
+                    deviceType = urlresult.deviceType,
+                    dateType = urlresult.dateType,
+                    value = urlresult.value,
+                    date = urlresult.date
+                });
+            }
+            return listTemp;
         }
+
+        //GeoffreyTemperatureGetListWebTempUri
+
+        public static async Task<HttpClient> GetListDateTask(string idType, long day1, long day2)
+        {
+            string Url = "http://10.167.128.145:8080/mobile-transaction/data/date-range?startDate=" + day1 + "&endDate=" + day2 + "&deviceType=" + idType;
+            HttpClient client = new HttpClient();
+            if (string.IsNullOrEmpty(_authorizationKey))
+            {
+                _authorizationKey = await client.GetStringAsync(Url);
+                _authorizationKey = JsonConvert.DeserializeObject<string>(_authorizationKey);
+            }
+
+            client.DefaultRequestHeaders.Add("Authorization", _authorizationKey);
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+            Console.WriteLine("GetListDateTaskGetListDateTaskGetListDateTaskGetListDateTaskGetListDateTaskGetListDateTaskGetListDateTaskGetListDateTaskGetListDateTaskGetListDateTask");
+            Console.WriteLine(client);
+
+            return client;
+        }
+
+
+
 
         public static void SendDateToUrl(string json)
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerInfo.GeoffreyTemperatureGetListTempUri);
-            httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
+            //httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "GET";
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
                 streamWriter.Write(json);
@@ -66,6 +82,7 @@ namespace AtlantisApplication.Models
 
         public class Date
         {
+            public string typeDevice;
             public long BeginDate;
             public long EndDate;
 

@@ -21,7 +21,15 @@ namespace AtlantisApplication
 
         private void SensorsButtonClicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new ListSensors());
+            try
+            {
+                Navigation.PushModalAsync(new ListSensors());
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error, no connection to REST", ex.Message, "OK");
+            }
+            
         }
 
         private void CommandsButtonClicked(object sender, EventArgs e)
@@ -36,7 +44,15 @@ namespace AtlantisApplication
 
         private void MetricsButtonClicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new AllMetricsDisplayView());
+            try
+            {
+                Navigation.PushModalAsync(new AllMetricsDisplayView());
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error, no connection to REST", ex.Message, "OK");
+            }
+            
         }
 
         private void CheckInternetButtonClicked(object sender, EventArgs e)
