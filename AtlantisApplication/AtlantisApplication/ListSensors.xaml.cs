@@ -108,10 +108,10 @@ namespace AtlantisApplication
             List<DeviceAPI> NewListTest = new List<DeviceAPI>();
             string id = listView.Parent.ToString();
 
-            NewListTest = listView.Parent.
+            //NewListTest = listView.Parent.
 
-            Console.WriteLine("CoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucou");
-            Console.WriteLine(id);
+            //Console.WriteLine("CoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucou");
+            //Console.WriteLine(id);
 
 
             //StackLayout listViewItem = (StackLayout)listView.Parent;
@@ -119,7 +119,7 @@ namespace AtlantisApplication
 
             //var item = ((Entry)sender).BindingContext;
 
-            Console.WriteLine("itemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitem");
+            //Console.WriteLine("itemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitem");
            // Console.WriteLine(item);
 
             /* var toggledSwitch = (ExtendedSwitch) sender;

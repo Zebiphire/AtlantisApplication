@@ -25,7 +25,16 @@
     <EmbeddedResource Update="Views\AllMetricsDisplayView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DisplayCustomTemperature.xaml">
+    <EmbeddedResource Update="Views\DisplayData\DisplayCustomCO2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DisplayData\DisplayCustomHumidity.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DisplayData\DisplayCustomSound.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DisplayData\DisplayCustomTemperature.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Login\LoginPageEliotView.xaml">

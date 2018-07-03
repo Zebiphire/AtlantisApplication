@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AtlantisApplication.Views.SensorPage.co2Sensor"
-             Title="CO2 Page">
+             x:Class="AtlantisApplication.Views.DisplayData.DisplayCustomSound">
     <ContentPage.Content>
-        <ListView x:Name="listC" Margin="0,25,0,0" >
+        <ListView x:Name="listSound" Margin="0,25,0,0" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" >
                             <StackLayout Padding="5,0,5,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                                <Label  Text="Average CO2" VerticalTextAlignment="Center" FontSize="Small" />
+                                <Label  Text="Sound by day" VerticalTextAlignment="Center" FontSize="Small" />
                             </StackLayout>
                             <StackLayout Padding="5,0,5,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
                                 <Label  Text="{Binding value}" VerticalTextAlignment="Center" FontSize="Small" />

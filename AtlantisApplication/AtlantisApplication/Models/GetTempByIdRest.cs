@@ -64,7 +64,7 @@ namespace AtlantisApplication.Models
 
         public static void SendDateToUrl(string json)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerInfo.GeoffreyTemperatureGetListTempUri);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerInfo.GeoffreyTemperatureGetListWebTempUri);
             //httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "GET";
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
