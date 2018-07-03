@@ -19,7 +19,7 @@ namespace AtlantisApplication.Models
 
         public static List<Temperature> GetListCustomTemperatures(string idType, long day1, long day2)
         {
-            string Url = "http://10.167.128.145:8080/mobile-transaction/data/date-range?startDate=" + day1 + "&endDate=" + day2 + "&deviceType=" + idType;
+            string Url = ServerInfo.GeoffreyCustomDate +""+ day1 + "&endDate=" + day2 + "&deviceType=" + idType;
             var jsonUrlDevices = new WebClient().DownloadString(Url);
             var listJsonDevice = JsonConvert.DeserializeObject<List<Temperature>>(jsonUrlDevices);
 
@@ -39,6 +39,71 @@ namespace AtlantisApplication.Models
             return listTemp;
         }
 
+        public static List<Sound> GetListCustomSounds(string idType, long day1, long day2)
+        {
+            string Url = "http://10.167.128.145:8080/mobile-transaction/data/date-range?startDate=" + day1 + "&endDate=" + day2 + "&deviceType=" + idType;
+            var jsonUrlDevices = new WebClient().DownloadString(Url);
+            var listJsonDevice = JsonConvert.DeserializeObject<List<Sound>>(jsonUrlDevices);
+
+            List<Sound> listTemp = new List<Sound>();
+
+            foreach (var urlresult in listJsonDevice)
+            {
+                listTemp.Add(new Sound
+                {
+                    id = urlresult.id,
+                    deviceType = urlresult.deviceType,
+                    dateType = urlresult.dateType,
+                    value = urlresult.value,
+                    date = urlresult.date
+                });
+            }
+            return listTemp;
+        }
+
+        public static List<Humidity> GetListCustomHumiditys(string idType, long day1, long day2)
+        {
+            string Url = "http://10.167.128.145:8080/mobile-transaction/data/date-range?startDate=" + day1 + "&endDate=" + day2 + "&deviceType=" + idType;
+            var jsonUrlDevices = new WebClient().DownloadString(Url);
+            var listJsonDevice = JsonConvert.DeserializeObject<List<Humidity>>(jsonUrlDevices);
+
+            List<Humidity> listTemp = new List<Humidity>();
+
+            foreach (var urlresult in listJsonDevice)
+            {
+                listTemp.Add(new Humidity
+                {
+                    id = urlresult.id,
+                    deviceType = urlresult.deviceType,
+                    dateType = urlresult.dateType,
+                    value = urlresult.value,
+                    date = urlresult.date
+                });
+            }
+            return listTemp;
+        }
+
+        public static List<CO2> GetListCustomCO2s(string idType, long day1, long day2)
+        {
+            string Url = "http://10.167.128.145:8080/mobile-transaction/data/date-range?startDate=" + day1 + "&endDate=" + day2 + "&deviceType=" + idType;
+            var jsonUrlDevices = new WebClient().DownloadString(Url);
+            var listJsonDevice = JsonConvert.DeserializeObject<List<CO2>>(jsonUrlDevices);
+
+            List<CO2> listTemp = new List<CO2>();
+
+            foreach (var urlresult in listJsonDevice)
+            {
+                listTemp.Add(new CO2
+                {
+                    id = urlresult.id,
+                    deviceType = urlresult.deviceType,
+                    dateType = urlresult.dateType,
+                    value = urlresult.value,
+                    date = urlresult.date
+                });
+            }
+            return listTemp;
+        }
         //GeoffreyTemperatureGetListWebTempUri
 
         public static async Task<HttpClient> GetListDateTask(string idType, long day1, long day2)

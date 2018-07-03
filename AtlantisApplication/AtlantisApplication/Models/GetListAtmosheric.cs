@@ -14,10 +14,8 @@ namespace AtlantisApplication.Models
         {
             var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.GeoffreyUri);
             var listJsonDevice = JsonConvert.DeserializeObject<List<Atmospheric>>(jsonUrlDevices);
-            string DAY = "";
-            string WEEK = "";
-            string MONTH = "";
             List<Atmospheric> listDevice = new List<Atmospheric>();
+
             foreach (var urlresult in listJsonDevice)
             {
                 listDevice.Add(new Atmospheric

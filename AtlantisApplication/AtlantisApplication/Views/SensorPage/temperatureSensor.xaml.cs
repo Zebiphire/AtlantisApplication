@@ -33,19 +33,24 @@ namespace AtlantisApplication.Views.SensorPage
         private long _result2;
         List<Temperature> listCustomTemp = new List<Temperature>();
 
-        public async Task DoneButton_OnClickedAsync(object sender, EventArgs e)
+        private void CustomValueTemp_OnClickedAsync(object sender, EventArgs e)
         {
-            string TypeSensor = "temperatureSensor";
 
-            var DateValue1 = Day1_Editor.Text;
-            var DateValue2 = Day2_Editor.Text;
-
-              _result1 = Convert.ToInt64(DateValue1);
-              _result2 = Convert.ToInt64(DateValue2);
-
-            listCustomTemp = GetTempByIdRest.GetListCustomTemperatures(TypeSensor, _result1, _result2);
-
-            await Navigation.PushAsync(new DisplayCustomTemperature(listCustomTemp));
         }
+
+        /* public async Task DoneButton_OnClickedAsync(object sender, EventArgs e)
+         {
+             string TypeSensor = "temperatureSensor";
+
+             var DateValue1 = Day1_Editor.Text;
+             var DateValue2 = Day2_Editor.Text;
+
+               _result1 = Convert.ToInt64(DateValue1);
+               _result2 = Convert.ToInt64(DateValue2);
+
+             listCustomTemp = GetTempByIdRest.GetListCustomTemperatures(TypeSensor, _result1, _result2);
+
+             await Navigation.PushAsync(new DisplayCustomTemperature(listCustomTemp));
+         }*/
     }
 }

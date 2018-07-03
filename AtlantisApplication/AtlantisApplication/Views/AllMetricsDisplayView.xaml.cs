@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AtlantisApplication.Models;
+using AtlantisApplication.Views.Menu;
 using AtlantisApplication.Views.SensorPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,22 +24,20 @@ namespace AtlantisApplication.Views
             
             try
             {
-                App.Current.MainPage = new NavigationPage(new temperatureSensor());
+                Navigation.PushModalAsync(new ChooseTemperature());
             }
             catch (Exception ex)
             {
                 DisplayAlert("Error, no connection to REST", ex.Message, "OK");
             }
 
-            //await Navigation.PushAsync(new temperatureSensor());
-            // this.Navigation.PushAsync(new temperatureSensor());
         }
 
         public async void GoOnHumidityPage(object sender, EventArgs e)
         {
             try
             {
-                App.Current.MainPage = new NavigationPage(new humiditySensor());
+                Navigation.PushModalAsync(new ChooseHumidity());
             }
             catch (Exception ex)
             {
@@ -50,7 +49,7 @@ namespace AtlantisApplication.Views
         {
             try
             {
-                App.Current.MainPage = new NavigationPage(new co2Sensor());
+                Navigation.PushModalAsync(new ChooseCO2());
             }
             catch (Exception ex)
             {
@@ -62,7 +61,7 @@ namespace AtlantisApplication.Views
         {
             try
             {
-                App.Current.MainPage = new NavigationPage(new soundLevelSensor());
+                Navigation.PushModalAsync(new ChooseSound());
             }
             catch (Exception ex)
             {

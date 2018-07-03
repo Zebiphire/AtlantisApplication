@@ -15,21 +15,17 @@ namespace AtlantisApplication.Models
         {
             var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.GeoffreyTemperatureWebUri);
             var listJsonDevice = JsonConvert.DeserializeObject<List<Temperature>>(jsonUrlDevices);
-            string id = "";
-            string deviceType = "";
-            string dateType = "";
-            string value = "";
-            string date = "";
             List<Temperature> listDevice = new List<Temperature>();
+
             foreach (var urlresult in listJsonDevice)
             {
                 listDevice.Add(new Temperature
                 {
-                    //id = urlresult.id,
-                    //deviceType = urlresult.deviceType,
+                    id = urlresult.id,
+                    deviceType = urlresult.deviceType,
                     dateType = urlresult.dateType,
                     value = urlresult.value,
-                    //date = urlresult.date
+                    date = urlresult.date
                 });
             }
             return listDevice;

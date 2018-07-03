@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlantisApplication.Views.Menu.ChooseCO2">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="GO to the Humidity list of the city"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Clicked="ListCO2_OnButtonClicked" />
+            <StackLayout Padding="5,10">
+                <Label Text="2 date for the Humidity"/>
+                <Editor x:Name="Day1_Editor" Text="" BackgroundColor="Cyan" HeightRequest="100" Keyboard="Numeric"/>
+                <Editor x:Name="Day2_Editor" Text="" BackgroundColor="CadetBlue" HeightRequest="100" Keyboard="Numeric"/>
+                <Button Clicked="CustomListCO2_OnButtonClickedAsync" x:Name="DoneButton" Text="Go !!!!!" TextColor="Red" BackgroundColor="DarkOrange" FontSize="Large" HorizontalOptions="Center" VerticalOptions="End"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

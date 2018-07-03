@@ -14,8 +14,6 @@ namespace AtlantisApplication.Controller
             async Task TaskMethodAsync()
             {
                 AuthorizationEndPoint test = new AuthorizationEndPoint();
-                
-
             }
 
             await TaskMethodAsync();

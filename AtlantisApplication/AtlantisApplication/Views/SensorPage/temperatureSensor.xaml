@@ -21,29 +21,10 @@
             </ListView.ItemTemplate>
         </ListView>
     </ContentPage.Content>
-    <StackLayout Padding="5,10">
+    <!--  <StackLayout Padding="5,10">
         <Label Text="2 date for the temperature"/>
         <Editor x:Name="Day1_Editor" Text="" BackgroundColor="Cyan" HeightRequest="100" Keyboard="Numeric"/>
         <Editor x:Name="Day2_Editor" Text="" BackgroundColor="CadetBlue" HeightRequest="100" Keyboard="Numeric"/>
         <Button Clicked="DoneButton_OnClickedAsync" x:Name="DoneButton" Text="Go !!!!!" TextColor="Red" BackgroundColor="DarkOrange" FontSize="Large" HorizontalOptions="Center" VerticalOptions="End"/>
-    </StackLayout>
+    </StackLayout>-->
 </ContentPage>
-
-
-    <!--
-    <ContentPage.Content>
-        <ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected" SelectedItem="{Binding Source={x:Reference name}}">
-        <ListView Margin="20">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="20,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                            <Label Text="Mac adress: " VerticalTextAlignment="Center" FontSize="Medium"  TextColor="Black" FontAttributes="Bold" />
-                            <Label x:Name="ViewTemp" Text="{Binding adress}" VerticalTextAlignment="Center" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </ContentPage.Content>
-</ContentPage> -->

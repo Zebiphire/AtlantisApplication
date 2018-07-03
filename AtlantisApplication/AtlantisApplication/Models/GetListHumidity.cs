@@ -18,8 +18,11 @@ namespace AtlantisApplication.Models
             {
                 listDevice.Add(new Humidity
                 {
+                    id = urlresult.id,
+                    deviceType = urlresult.deviceType,
                     dateType = urlresult.dateType,
                     value = urlresult.value,
+                    date = urlresult.date
                 });
             }
             return listDevice;

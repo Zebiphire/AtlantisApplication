@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtlantisApplication.Views.Disabled.isDisabledDevice">
+    <ContentPage.Content>
+        <StackLayout>
+        <StackLayout Padding="30" Margin="5,5,5,5" HorizontalOptions="Start" VerticalOptions="Start">
+            <Label Text="Device name: " VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding NameSensor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+        <StackLayout Padding="30" Margin="5,5,5,5" HorizontalOptions="Start" VerticalOptions="Start">
+                <Button Text="Change de state for Device" Clicked="isDisabledButton_onClickedAsync"/>
+        </StackLayout>
+        <StackLayout Padding="30" Margin="5,5,5,5" HorizontalOptions="Start" VerticalOptions="Start">
+            <Label Text="State of the Device: " VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="disabled" Text="{Binding IsDisabled}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

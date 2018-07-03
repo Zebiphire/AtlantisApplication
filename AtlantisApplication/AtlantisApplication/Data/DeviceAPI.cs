@@ -10,16 +10,13 @@ namespace AtlantisApplication.Data
     public class DeviceAPI
     {
 
-
         public string addressMac { get; set; }
         public List<Employee> employees { get; set; }
         public int id { get; set; }
         public string name { get; set; }
         public TypeDevices typeDevices { get; set; }
-        public string disabled { get; set; }
-
+        public Boolean disabled { get; set; }
         public string nameDeviceType { get; set; }
-
 
         /*public long id;
 

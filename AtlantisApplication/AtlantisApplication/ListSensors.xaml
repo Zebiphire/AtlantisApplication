@@ -13,7 +13,7 @@
     <ContentPage.Content>
 
         <!--<ListView x:Name="listView" Margin="20" ItemSelected="OnItemSelected" SelectedItem="{Binding Source={x:Reference name}}">-->
-        <ListView x:Name="listView"  ItemSelected="OnItemSelectedAsync" HasUnevenRows="True">
+        <ListView x:Name="listView"  ItemSelected="OnItemSelected" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:Name="switchBool">
@@ -29,17 +29,17 @@
                                 <Label Text="MAC adress: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
                                 <Label Text="{Binding addressMac}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
 
-                                <Label Text="Name of the Device: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                                <Label Text="{Binding employees.id}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-
                                 <Label Text="Name of the DeviceType: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
                                 <Label Text="{Binding nameDeviceType}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+
+                              <!--  <Label Text="Name of the Device: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding employees.id}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
 
                                 <Label Text="Name of the employee: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
                                 <Label Text="{Binding employees.name}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
 
                                 <Label Text="Lastname of the employee: " VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                                <Label Text="{Binding employees.lastName}" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                <Label Text="{Binding employees.lastName}" VerticalTextAlignment="Center" FontAttributes="Bold"/> -->
 
 
                                 <!--  <StackLayout Padding="5,20,5,20" Orientation="Horizontal" >

@@ -21,8 +21,11 @@ namespace AtlantisApplication.Models
             {
                 listDevice.Add(new CO2
                 {
+                    id = urlresult.id,
+                    deviceType = urlresult.deviceType,
                     dateType = urlresult.dateType,
                     value = urlresult.value,
+                    date = urlresult.date
                 });
             }
             return listDevice;

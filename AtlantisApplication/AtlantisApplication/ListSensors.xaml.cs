@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using AtlantisApplication.Data;
 using AtlantisApplication.Models;
+using AtlantisApplication.Views.Disabled;
 using AtlantisApplication.Views.SensorPage;
 using Newtonsoft.Json;
 using Xamarin.Forms;
@@ -55,7 +56,7 @@ namespace AtlantisApplication
                     nameDeviceType = urlresult.nameDeviceType,
                     disabled = urlresult.disabled,
                     id = urlresult.id,
-                    employees = urlresult.employees
+                    //employees = urlresult.employees
                 });
             }
 
@@ -72,7 +73,7 @@ namespace AtlantisApplication
         }
 
         //private INavigation _navigation;
-        private async void OnItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             //listView.SetBinding(ListView.SelectedItemProperty, "SelectedItem");
             /*var item = e.SelectedItem;
@@ -80,8 +81,13 @@ namespace AtlantisApplication
             await Navigation.PushAsync(newpage);*/
 
             ListView myList = (ListView) sender;
-            var adress = (myList.SelectedItem as DeviceAPI);
-            int id = adress.id;
+            var getInfoFromListView = (myList.SelectedItem as DeviceAPI);
+            int id = getInfoFromListView.id;
+            Boolean isDisabled = getInfoFromListView.disabled;
+            string nameSensor = getInfoFromListView.name;
+
+            Navigation.PushModalAsync(new isDisabledDevice(id, isDisabled, nameSensor));
+
 
             //await Application.Current.MainPage.Navigation.PushAsync(new temperatureSensor(id));
 
@@ -108,8 +114,6 @@ namespace AtlantisApplication
             List<DeviceAPI> NewListTest = new List<DeviceAPI>();
             string id = listView.Parent.ToString();
 
-            //NewListTest = listView.Parent.
-
             //Console.WriteLine("CoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucouCoucou");
             //Console.WriteLine(id);
 
@@ -120,7 +124,7 @@ namespace AtlantisApplication
             //var item = ((Entry)sender).BindingContext;
 
             //Console.WriteLine("itemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitemitem");
-           // Console.WriteLine(item);
+            // Console.WriteLine(item);
 
             /* var toggledSwitch = (ExtendedSwitch) sender;
              bool item = toggledSwitch.MyItem;*/
