@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using AtlantisApplication.ViewModels;
 using Newtonsoft.Json;
 using Xamarin.Auth;
@@ -17,13 +18,37 @@ namespace AtlantisApplication.Models
         {
             List<Token> listToken = new List<Token>();
 
-            AccessToken parameters = new AccessToken
+             /* AccessToken parameters = new AccessToken
+              {
+                  client_id = "358ca400-fdf6-4357-8cca-27caa6699197" ,
+                  grant_type = "358ca400-fdf6-4357-8cca-27caa6699197",
+                  code = Code,
+                  client_secret = "*d,|`89Jnx/Ea5O8y$T724W4"
+              };*/
+
+
+            var client = new HttpClient();
+            client.BaseAddress = new Uri("https://partners-login.eliotbylegrand.com/token");
+            var request = new HttpRequestMessage(HttpMethod.Post, "/token");
+
+            var nvc = new List<KeyValuePair<string, string>>();
+            nvc.Add(new KeyValuePair<string, string>("client_id", "358ca400-fdf6-4357-8cca-27caa6699197"));
+            nvc.Add(new KeyValuePair<string, string>("grant_type", "authorization_code"));
+            nvc.Add(new KeyValuePair<string, string>("code", Code));
+            nvc.Add(new KeyValuePair<string, string>("client_secret", "*d,|`89Jnx/Ea5O8y$T724W4"));
+
+            request.Content = new FormUrlEncodedContent(nvc);
+
+            //var response = await client.SendAsync(request);
+
+            using (HttpResponseMessage res = await client.SendAsync(request))
             {
-                client_id = "358ca400-fdf6-4357-8cca-27caa6699197" ,
-                grant_type = "authorization_code",
-                code = Code,
-                client_secret = "*d,|`89Jnx/Ea5O8y$T724W4"
-            };
+                using (HttpContent content = res.Content)
+                {
+                    string result = await content.ReadAsStringAsync();
+                }
+            }
+
 
             /*var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.TokenEndpoint);
             var listJsonDevice = JsonConvert.DeserializeObject<List<Token>>(jsonUrlDevices);
@@ -47,65 +72,83 @@ namespace AtlantisApplication.Models
             }*/
             //return listToken;
 
-           /* var jsonMetric = JsonConvert.SerializeObject(parameters);
+            /* var jsonMetric = JsonConvert.SerializeObject(parameters);
 
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerInfo.TokenEndpoint);
-            httpWebRequest.ContentType = "application/x-www-form-urlencoded";
-            httpWebRequest.Method = "POST";
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(jsonMetric);
-                streamWriter.Flush();
-                streamWriter.Close();
-            }
+             var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerInfo.TokenEndpoint);
+             httpWebRequest.ContentType = "application/x-www-form-urlencoded";
+             httpWebRequest.Method = "POST";
+             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+             {
+                 streamWriter.Write(jsonMetric);
+                 streamWriter.Flush();
+                 streamWriter.Close();
+             }
 
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            {
-                var result = streamReader.ReadToEnd();
-            }*/
-
-
-            /*  var nvc = new List<KeyValuePair<string, string>>();
-              nvc.Add(new KeyValuePair<string, string>("client_id", "358ca400-fdf6-4357-8cca-27caa6699197"));
-              nvc.Add(new KeyValuePair<string, string>("grant_type", "authorization_code"));
-              nvc.Add(new KeyValuePair<string, string>("code", Code));
-              nvc.Add(new KeyValuePair<string, string>("client_secret", "*d,|`89Jnx/Ea5O8y$T724W4"));*/
+             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+             {
+                 var result = streamReader.ReadToEnd();
+             }*/
 
 
-              var client = new HttpClient();
-              client.BaseAddress = new Uri(ServerInfo.TokenEndpoint.ToString());
-              var request = new HttpRequestMessage(HttpMethod.Post, "/");
+            /*var nvc = new List<KeyValuePair<string, string>>();
+            nvc.Add(new KeyValuePair<string, string>("client_id", "358ca400-fdf6-4357-8cca-27caa6699197"));
+            nvc.Add(new KeyValuePair<string, string>("grant_type", "authorization_code"));
+            nvc.Add(new KeyValuePair<string, string>("code", Code));
+            nvc.Add(new KeyValuePair<string, string>("client_secret", "*d,|`89Jnx/Ea5O8y$T724W4"));*/
 
-              var requestContent = string.Format(ServerInfo.TokenEndpoint+ "client_id=358ca400-fdf6-4357-8cca-27caa6699197&grant_type=authorization_code&code={0}&client_secret=*d,|`89Jnx/Ea5O8y$T724W4", Code);
-              request.Content = new StringContent(requestContent, Encoding.UTF8, "application/x-www-form-urlencoded");
+            /* var client = new HttpClient();
+             client.BaseAddress = new Uri("https://partners-login.eliotbylegrand.com/token");
+             string jsonData = string.Format(@"{""client_id"":""358ca400-fdf6-4357-8cca-27caa6699197"",""grant_type"":""358ca400-fdf6-4357-8cca-27caa6699197"",""code"" : "+{0}+", ""client_secret"" : ""*d,|`89Jnx/Ea5O8y$T724W4""}";}, Code);
+             var content = new StringContent(jsonData, Encoding.UTF8, "application/x-www-form-urlencoded");
+             HttpResponseMessage response = Task.Run(async () => await client.GetAsync("https://partners-login.eliotbylegrand.com/token")).Result;
+             var result = await response.Content.ReadAsStringAsync();*/
 
-               using (HttpResponseMessage res = await client.SendAsync(request))
-               {
-                   using (HttpContent content = res.Content)
-                   {
-                       string result = await content.ReadAsStringAsync();
+
+            /*var uri = new Uri("https://partners-login.eliotbylegrand.com/token");
+            var json = JsonConvert.SerializeObject(parameters);
+            var content = new StringContent(string.Join("&", parameters), Encoding.UTF8, "application/x-www-form-urlencoded");
+            var content = new StringContent(json, Encoding.UTF8, "application/x-www-form-urlencoded");
+            HttpResponseMessage response = null;
+            var client = new HttpClient();
+            response = await client.PostAsync(uri, content);*/
+
+
+           /* var client = new HttpClient();
+            client.BaseAddress = new Uri(ServerInfo.TokenEndpoint.ToString());
+            var request = new HttpRequestMessage(HttpMethod.Post, "/token");
+
+            var requestContent = string.Format(ServerInfo.TokenEndpoint+ "client_id=358ca400-fdf6-4357-8cca-27caa6699197&grant_type=authorization_code&code={0}&client_secret=*d,|`89Jnx/Ea5O8y$T724W4", Code);
+            request.Content = new StringContent(requestContent, Encoding.UTF8, "application/x-www-form-urlencoded");
+
+             using (HttpResponseMessage res = await client.SendAsync(request))
+             {
+                 using (HttpContent content = res.Content)
+                 {
+                     string result = await content.ReadAsStringAsync();
+
                    }
-               }
+             }*/
+
+            //return listToken;
+
+            /* var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerInfo.TokenEndpoint);
+             httpWebRequest.ContentType = "application/x-www-form-urlencoded";
+             httpWebRequest.Method = "POST";
+             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+             {
+                 streamWriter.Write(nvc);
+                 streamWriter.Flush();
+                 streamWriter.Close();
+             }*/
+
+            /* var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+             {
+                 var result = streamReader.ReadToEnd();
+             }*/
 
             return listToken;
-
-            //var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerInfo.TokenEndpoint);
-            //httpWebRequest.ContentType = "application/x-www-form-urlencoded";
-            //httpWebRequest.Method = "POST";
-            //using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            //{
-            //    streamWriter.Write(nvc);
-            //    streamWriter.Flush();
-            //    streamWriter.Close();
-            //}
-
-            //var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            //using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            //{
-            //    var result = streamReader.ReadToEnd();
-            //}
-
         } 
     }
 }

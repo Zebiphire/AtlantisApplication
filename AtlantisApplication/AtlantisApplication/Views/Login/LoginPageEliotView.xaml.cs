@@ -35,7 +35,7 @@ namespace AtlantisApplication.Views.Login
             Content = browser;
             
 
-              browser.Navigating += (object sender, WebNavigatingEventArgs e) =>
+              browser.Navigating += async (object sender, WebNavigatingEventArgs e) =>
               {
 
                   var url = e.Url;
@@ -43,7 +43,7 @@ namespace AtlantisApplication.Views.Login
                   code2 = HttpUtility.ParseQueryString(uri.Query).Get("code");
                   if (code2 != null)
                   {
-                      ListToken = GetTokenAccessEliot.GetTokenAsync(code2);
+                      ListToken = await GetTokenAccessEliot.GetTokenAsync(code2);
                   }
               };
 
