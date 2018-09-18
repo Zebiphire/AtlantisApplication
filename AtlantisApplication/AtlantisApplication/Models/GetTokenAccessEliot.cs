@@ -17,6 +17,7 @@ namespace AtlantisApplication.Models
         public static async System.Threading.Tasks.Task<List<Token>> GetTokenAsync(string Code)
         {
             List<Token> listToken = new List<Token>();
+            string resultToken = "";
 
              /* AccessToken parameters = new AccessToken
               {
@@ -46,8 +47,10 @@ namespace AtlantisApplication.Models
                 using (HttpContent content = res.Content)
                 {
                     string result = await content.ReadAsStringAsync();
+                    result = resultToken;
                 }
             }
+            
 
 
             /*var jsonUrlDevices = new WebClient().DownloadString(ServerInfo.TokenEndpoint);
